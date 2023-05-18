@@ -2,9 +2,7 @@
 
 <template>
   <div class="dsad">
-    <div class="box1">d\
-      
-      asdadasda</div>
+    <div class="box1">d\ asdadasda</div>
     dasdas
   </div>
 </template>
