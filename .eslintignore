@@ -2,3 +2,4 @@ dist
 node_modules
 .eslintrc.cjs
 commitlint.config.cjs
+scritps/preinstall.js

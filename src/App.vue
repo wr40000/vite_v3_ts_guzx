@@ -1,21 +1,21 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="dsad">
-    <div class="box1">d\ asdadasda</div>
-    dasdas
-  </div>
+  <SvgIcon name="qushi" width="50px" height="50px"></SvgIcon>
 </template>
 
+<script setup lang="ts">
+import {reqLogin} from "@/api/user/index"
+import { onMounted } from 'vue';
+
+onMounted(()=>{
+  reqLogin({
+    username:"admin",
+    password:"111111",
+    token:"123"
+  })
+})
+
+</script>
+
 <style scoped lang="scss">
-.dsad {
-  width: 200px;
-  height: 200px;
-  background-color: #3d0c0c;
-  .box1 {
-    width: 100px;
-    height: 100px;
-    background-color: #53e9c3;
-  }
-}
+
 </style>
