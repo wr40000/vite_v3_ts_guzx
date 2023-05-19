@@ -1,11 +1,8 @@
 <template>
-    <h1>home</h1>
+  <h1>home</h1>
+  <svg-icon name="Jim's_set"></svg-icon>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped lang='scss'>
-
-</style>
+<style scoped lang="scss"></style>

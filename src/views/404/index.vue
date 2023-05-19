@@ -1,11 +1,7 @@
 <template>
-    <h1>404</h1>
+  <h1>404</h1>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped lang='scss'>
-
-</style>
+<style scoped lang="scss"></style>

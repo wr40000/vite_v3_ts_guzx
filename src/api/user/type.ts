@@ -1,34 +1,35 @@
-export interface loginFormData{
-    username: String,
-    password: String,
-    token:String
+export interface loginFormData {
+  username: string;
+  password: string;
 }
-interface datatype{
-    token:String
-}
-
-export interface loginResponseData{
-    code: Number, 
-    data: datatype
+interface datatype {
+  token: string;
+  message:string
 }
 
-interface userinfo{
-    userId:Number,
-    avatar:String,
-    username:String,
-    password: String,
-    desc: String,
-    roles: [],
-    buttons: [],
-    routes: [],
-    token: string
+export interface loginResponseData {
+  code: Number;
+  data: datatype;
+  token: string;
 }
 
-interface user{
-    checkUser:userinfo,
+interface userinfo {
+  userId: Number;
+  avatar: string;
+  username: string;
+  password: string;
+  desc: string;
+  roles: [];
+  buttons: [];
+  routes: [];
+  token: string;
 }
 
-export interface userInfoReponseData{
-    code:Number,
-    data:user
+interface user {
+  checkUser: userinfo;
+}
+
+export interface userInfoReponseData {
+  code: Number;
+  data: user;
 }
