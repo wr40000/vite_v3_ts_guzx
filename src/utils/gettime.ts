@@ -13,5 +13,5 @@ export const getTime = () => {
   } else {
     message = "夜深了，该睡觉了";
   }
-  return message
+  return message;
 };

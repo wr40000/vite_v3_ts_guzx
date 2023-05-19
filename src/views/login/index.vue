@@ -4,16 +4,21 @@
       <el-row>
         <el-col :span="12" :xs="0"></el-col>
         <el-col :span="12" :xs="24">
-          <el-form class="login_form" :model="input_login" :rules="rules" ref="loginForms">
+          <el-form
+            class="login_form"
+            :model="input_login"
+            :rules="rules"
+            ref="loginForms"
+          >
             <h1>Hello Welcome</h1>
             <h2>Please Login</h2>
             <el-form-item prop="username">
               <el-input
                 :prefix-icon="User"
-                v-model="input_login.username"                
+                v-model="input_login.username"
               ></el-input>
             </el-form-item>
-            <el-form-item  prop="password">
+            <el-form-item prop="password">
               <el-input
                 type="password"
                 :prefix-icon="Lock"
@@ -23,8 +28,11 @@
             </el-form-item>
             <el-form-item>
               <el-button
-                type="primary" class="el-btn" size="default"
-                @click="login" :loading="isload"
+                type="primary"
+                class="el-btn"
+                size="default"
+                @click="login"
+                :loading="isload"
                 >登录</el-button
               >
             </el-form-item>
@@ -36,20 +44,20 @@
 </template>
 
 <script setup lang="ts">
-import {User, Lock} from '@element-plus/icons-vue';
-import { reactive, ref } from 'vue';
-import $router from '@/router';
-import { ElNotification } from 'element-plus'
+import { User, Lock } from "@element-plus/icons-vue";
+import { reactive, ref } from "vue";
+import $router from "@/router";
+import { ElNotification } from "element-plus";
 //引入userStore
-import useUserStore from '@/store/modules/user';
-import { getTime } from '@/utils/gettime';
-import type { FormRules } from 'element-plus'
+import useUserStore from "@/store/modules/user";
+import { getTime } from "@/utils/gettime";
+import type { FormRules } from "element-plus";
 // 仓库 注意加括号useUserStore()
 let userStore = useUserStore();
 let input_login = reactive({
-    username:"",
-    password:""
-  });
+  username: "",
+  password: "",
+});
 // 登录按钮加载动画
 let isload = ref(false);
 // 时间
@@ -59,57 +67,61 @@ let message = getTime();
 let loginForms = ref();
 
 const validateUserName = (rule: any, value: any, callback: any) => {
-  if (value.length >=5 && value.length <= 10) {
-    callback()
+  if (value.length >= 5 && value.length <= 10) {
+    callback();
   } else {
-      callback(new Error('用户名不得小于5位或长于10位'))
+    callback(new Error("用户名不得小于5位或长于10位"));
   }
-}
+};
 const validateUserPassword = (rule: any, value: any, callback: any) => {
-  if (value.length >=6 && value.length <= 11) {
-    callback()
+  if (value.length >= 6 && value.length <= 11) {
+    callback();
   } else {
-      callback(new Error('密码不得小于6位或长于11位'))
+    callback(new Error("密码不得小于6位或长于11位"));
   }
-}
-const login = async ()=>{
+};
+const login = async () => {
   isload.value = true;
   // 全部表单数据校验合格后才发请求
   await loginForms.value.validate();
 
-  try{
+  try {
     await userStore.userLogin(input_login);
-    $router.push('/home');
+    $router.push("/home");
     ElNotification({
-      type:"success",
-      title:message,
-      message:"欢迎回来",
-      duration:4000
+      type: "success",
+      title: message,
+      message: "欢迎回来",
+      duration: 4000,
     });
     isload.value = false;
-  } catch(error){
+  } catch (error) {
     isload.value = false;
-    $router.push('/');
+    $router.push("/");
     ElNotification({
-      type:"error",
-      message:"账号或密码错误",
-      duration:4000
-    })
+      type: "error",
+      message: "账号或密码错误",
+      duration: 4000,
+    });
   }
-
-}
+};
 //校验规则  html代码里的正确使用的方法是 :rules 而非 :rule
 const rules = reactive<FormRules>({
-  username:[{
-    // required: true, validator:validateUserName, min: 5, max: 10, message: '用户名不得小于5位或长于10位', trigger: 'change'
-    required: true, validator:validateUserName
-  }],
-  password:[{
-    // required: true, min: 6, max: 11, message: '密码不得小于6位或长于11位', trigger: 'change'
-    required: true, validator:validateUserPassword
-  }]
-})
-
+  username: [
+    {
+      // required: true, validator:validateUserName, min: 5, max: 10, message: '用户名不得小于5位或长于10位', trigger: 'change'
+      required: true,
+      validator: validateUserName,
+    },
+  ],
+  password: [
+    {
+      // required: true, min: 6, max: 11, message: '密码不得小于6位或长于11位', trigger: 'change'
+      required: true,
+      validator: validateUserPassword,
+    },
+  ],
+});
 </script>
 
 <style scoped lang="scss">
