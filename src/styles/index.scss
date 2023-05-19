@@ -1,1 +1,16 @@
 @import './reset.scss';
+
+//引入滚动条样式
+
+::-webkit-scrollbar{
+    width:15px;
+}
+
+::-webkit-scrollbar-thumb{
+    width:10px;
+    background-color: $base-scroll-color;
+    border-radius: 10px;
+}
+// ::-webkit-scrollbar-track {
+//     background-color: #6e0808;
+//   }

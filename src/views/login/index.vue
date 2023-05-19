@@ -2,7 +2,9 @@
   <div class="login_container">
     <div>
       <el-row>
-        <el-col :span="12" :xs="0"></el-col>
+        <el-col :span="12" :xs="0">
+          <h1 class="login_container_left">Hello Welcome</h1>
+        </el-col>
         <el-col :span="12" :xs="24">
           <el-form
             class="login_form"
@@ -10,7 +12,6 @@
             :rules="rules"
             ref="loginForms"
           >
-            <h1>Hello Welcome</h1>
             <h2>Please Login</h2>
             <el-form-item prop="username">
               <el-input
@@ -87,7 +88,7 @@ const login = async () => {
 
   try {
     await userStore.userLogin(input_login);
-    $router.push("/home");
+    $router.push("/layout");
     ElNotification({
       type: "success",
       title: message,
@@ -131,6 +132,13 @@ const rules = reactive<FormRules>({
   background-image: url("@/assets/images/bc_2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  .login_container_left {
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    -webkit-text-stroke: 0.05rem #2f90b9;
+    margin-top: 5%;
+    margin-left: 5%;
+  }
   .login_form {
     margin-left: 30%;
     width: 40%;
@@ -147,12 +155,12 @@ const rules = reactive<FormRules>({
       color: #fb8b05;
       border-color: none;
     }
-    h1 {
-      -webkit-text-fill-color: transparent;
-      font-size: 2rem;
-      -webkit-text-stroke: 0.05rem #2f90b9;
-      margin-bottom: 1rem;
-    }
+    // h1 {
+    //   -webkit-text-fill-color: transparent;
+    //   font-size: 2rem;
+    //   -webkit-text-stroke: 0.05rem #2f90b9;
+    //   margin-bottom: 1rem;
+    // }
     h2 {
       -webkit-text-fill-color: transparent;
       font-size: 1.5rem;

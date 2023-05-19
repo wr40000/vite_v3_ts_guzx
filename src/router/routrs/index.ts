@@ -1,9 +1,9 @@
 export const constantRoute = [
   {
-    path: "/home",
+    path: "/layout",
     //component的写法需要注意
-    component: () => import("@/views/home/index.vue"),
-    name: "home",
+    component: () => import("@/layout/index.vue"),
+    name: "layout",
   },
   {
     path: "/",
