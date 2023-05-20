@@ -7,21 +7,12 @@
       <div class="layout_menu_left">
         <el-scrollbar height="100%">
           <el-menu class="munu_item">
-            <el-menu-item index="1">个人中心</el-menu-item>
-            <el-menu-item index="2">游戏相关</el-menu-item>
-            <el-sub-menu index="3">
-              <template #title>Workspace</template>
-              <el-menu-item class="munu_item_item" index="3-1"
-                >item one</el-menu-item
-              >
-              <el-menu-item index="3-2">item two</el-menu-item>
-              <el-menu-item index="3-3">item three</el-menu-item>
-            </el-sub-menu>
+            <Menu :menuList="useUserStore_for_menu" />
           </el-menu>
         </el-scrollbar>
       </div>
       <div class="layout_main_right">
-        layout_main_right
+        <Main/>
         <div style="width: 100px; height: 300%"></div>
       </div>
     </div>
@@ -30,6 +21,11 @@
 
 <script setup lang="ts">
 import logo from "./logo/index.vue";
+import Menu from "./menu/index.vue";
+import useUserStore from "@/store/modules/user";
+import Main from "@/layout/main/index.vue"
+
+let useUserStore_for_menu = useUserStore().constantRoutes;
 </script>
 
 <style scoped lang="scss">
@@ -51,12 +47,17 @@ import logo from "./logo/index.vue";
     display: flex;
     width: 100%;
     height: calc(100vh - $base-lt-height);
+
     .layout_menu_left {
       padding: 1rem;
       width: $base-lmr-width;
       height: 100%;
       overflow: scroll;
       background-color: $base-lml-background-color;
+      .el-menu {
+        border-right: none;
+        background-color: $base-lmr-background-color;
+      }
       .munu_item {
         background-color: $base-lmr-background-color;
       }

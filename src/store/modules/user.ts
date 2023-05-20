@@ -4,12 +4,14 @@ import type { loginFormData } from "@/api/user/type";
 import type { UserStoreToken } from "./type/type";
 import { saveToken } from "@/utils/tokens";
 import { getToken } from "@/utils/tokens";
+import { constantRoute } from "@/router/routrs";
 
 let useUserStore = defineStore("useUserStore", {
   state: (): UserStoreToken => {
     return {
       // token:localStorage.getItem("TOKEN"),
       token: getToken(),
+      constantRoutes:constantRoute
     };
   },
   actions: {

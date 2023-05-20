@@ -1,16 +1,31 @@
-@import './reset.scss';
+@import "./reset.scss";
 
 //引入滚动条样式
 
-::-webkit-scrollbar{
-    width:15px;
+::-webkit-scrollbar {
+  width: 15px;
 }
 
-::-webkit-scrollbar-thumb{
-    width:10px;
-    background-color: $base-scroll-color;
-    border-radius: 10px;
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: $base-scroll-color;
+  border-radius: 10px;
 }
 // ::-webkit-scrollbar-track {
 //     background-color: #6e0808;
 //   }
+
+// #region
+// 修改elm plus 二级菜单，，没有卵用
+// .el-menu--submenu-wrapper {
+//     background-color: #d32828;
+//   }
+
+//   .el-submenu.is-opened .el-menu-item {
+//     background-color: #8f1010;
+//   }
+// #endregion
+
+:root {
+  --el-menu-bg-color: $base-lml-background-color; /* 这里是新值 */
+}
