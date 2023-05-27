@@ -27,5 +27,9 @@
 // #endregion
 
 :root {
-  --el-menu-bg-color: $base-lml-background-color; /* 这里是新值 */
+  --el-menu-bg-color: $base-lml-background-color; /* 二级菜单 这里是新值 */
+}
+// 解决设置滚动条右下角出现的白块
+::-webkit-scrollbar-corner {
+  background-color: $base-lml-background-color;
 }

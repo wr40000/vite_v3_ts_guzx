@@ -1,11 +1,3 @@
-<template>
-  <!-- <h1>home</h1>  
-  <svg-icon name="Jim's_set"></svg-icon> -->
-  <canvas></canvas>
-</template>
-
-<script setup lang="ts">
-import { onMounted} from 'vue'
 import basicVert from '@/assets/webgpu/shaders_my_rotate/basic.vert.wgsl?raw'
 import positionFrag from '@/assets/webgpu/shaders_my_rotate/position.frag.wgsl?raw'
 import * as cube from '@/assets/webgpu/util_my_rotate/cube'
@@ -13,8 +5,6 @@ import { getMvpMatrix } from '@/assets/webgpu/util/math'
 
 // initialize webgpu device & config canvas context
 async function initWebGPU(canvas: HTMLCanvasElement) {
-    console.log(navigator);
-    
     if(!navigator.gpu)
         throw new Error('Not Support WebGPU')
     const adapter = await navigator.gpu.requestAdapter()
@@ -208,7 +198,7 @@ async function run(){
         rotation.x = Math.sin(now)
         rotation.y = Math.cos(now)
         const mvpMatrix = getMvpMatrix(aspect, position, rotation, scale)
-        // console.log(mvpMatrix);
+        console.log(mvpMatrix);
         
         device.queue.writeBuffer(
             pipelineObj.mvpBuffer,
@@ -237,19 +227,4 @@ async function run(){
         aspect = size.width/ size.height
     })
 }
-
-
-onMounted(()=>{
-    run()
-})
-
-
-</script>
-<script lang="ts">
-
-export default{
-  name:"Home",
-}
-</script>
-
-<style scoped lang="scss"></style>
+run()

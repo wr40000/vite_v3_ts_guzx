@@ -1,28 +1,38 @@
 export const constantRoute = [
-  //Login
-  {
-    path: "/",
-    component: () => import("@/views/login/index.vue"),
-    name: "login",
-    meta: {
-      title: "登录",
-      hidden: true,
-      icon: "Position",
+    //Login
+    {
+      path: "/",
+      component: () => import("@/views/login/index.vue"),
+      name: "login",
+      meta: {
+        title: "登录",
+        hidden: true,
+        icon: "Position",
+      },
     },
-  },
   //layout
   {
     path: "/layout",
     //component的写法需要注意
     component: () => import("@/layout/index.vue"),
     name: "layout",
-    redirect: "/layout/home",
+    redirect: "/layout/hellow",
     meta: {
       title: "主页",
       hidden: true,
       icon: "House",
     },
     children: [
+      {
+        path: "/layout/hellow",
+        name: "hellow",
+        component: () => import("@/views/welcome/index.vue"),
+        meta: {
+          title: "你好",
+          hidden: true,
+          icon: "Guide",
+        },
+      },
       {
         path: "/layout/home",
         name: "home",
@@ -34,9 +44,9 @@ export const constantRoute = [
         },
       },
       {
-        path: "/layout/home",
-        name: "home",
-        component: () => import("@/views/home/index.vue"),
+        path: "/layout/power",
+        name: "Power",
+        component: () => import("@/views/power/index.vue"),
         meta: {
           title: "权限",
           hidden: true,
@@ -86,6 +96,7 @@ export const constantRoute = [
       title: "权限管理",
       icon: "Lock",
     },
+    redirect: "/acl/user",
     children: [
       {
         path: "/acl/user",
@@ -129,6 +140,7 @@ export const constantRoute = [
       title: "商品管理",
       icon: "Goods",
     },
+    redirect: "/product/trademark",
     children: [
       {
         path: "/product/trademark",

@@ -1,7 +1,7 @@
 <template>
   <div class="logo">
-    <div class="logo_img" v-if="setting.logo_isshow">
-      <img :src="setting.logo" />
+    <div class="logo_img" v-if="setting.logo_isshow" >
+      <img :src="setting.logo" title="Terraria" @click="gohome"/>
     </div>
     <div class="logo_text">Terraria</div>
   </div>
@@ -9,6 +9,17 @@
 
 <script setup lang="ts">
 import setting from "@/setting";
+import { useRouter } from "vue-router";
+
+let $route = useRouter();
+const gohome=()=>{
+  $route.push("/layout/welcome");
+}
+</script>
+<script lang="ts">
+export default{
+  name:"Logo",
+}
 </script>
 
 <style scoped lang="scss">

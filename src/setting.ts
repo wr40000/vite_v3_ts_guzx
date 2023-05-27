@@ -1,5 +1,5 @@
 export default {
   title: "Terraria",
-  logo: "./src/assets/Terraria/时装/Creeper_set.png",
+  logo: "./src/assets/Terraria/武器/Zenith.webp",
   logo_isshow: true,
 };

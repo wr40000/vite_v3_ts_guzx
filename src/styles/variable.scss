@@ -3,10 +3,15 @@
 //layout_menu_left  lml
 //layout_main_right     lmr
 $base-lt-height:7vh;
-$base-lmr-width:15vw;
+$base-lml-width:15vw;
+$base-lmr-maxwidth:200px;
 $base-lml-background-color:inherit;
+$base-lml-fold-width:75px;
 $base-lmr-background-color:inherit;
 $base-scroll-color:black;
 
 //logo
-$base-logo-width:20%;
+$base-logo-width:15vw;
+
+$tabbar_container_height:3rem;
+$tabbar_container_bc:inherit;

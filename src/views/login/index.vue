@@ -53,6 +53,8 @@ import { ElNotification } from "element-plus";
 import useUserStore from "@/store/modules/user";
 import { getTime } from "@/utils/gettime";
 import type { FormRules } from "element-plus";
+import { useRoute } from "vue-router";
+
 // 仓库 注意加括号useUserStore()
 let userStore = useUserStore();
 let input_login = reactive({
@@ -66,6 +68,7 @@ let message = getTime();
 
 //拿到表单实例
 let loginForms = ref();
+let $route = useRoute();
 
 const validateUserName = (rule: any, value: any, callback: any) => {
   if (value.length >= 5 && value.length <= 10) {
@@ -88,7 +91,10 @@ const login = async () => {
 
   try {
     await userStore.userLogin(input_login);
-    $router.push("/layout");
+    // 判断登录的时候是否有query参数
+    let redirect:any = $route.query.redirect;
+    // console.log( $route.query.redirect);
+    $router.push({path:redirect || "/layout"});
     ElNotification({
       type: "success",
       title: message,
@@ -98,7 +104,9 @@ const login = async () => {
     isload.value = false;
   } catch (error) {
     isload.value = false;
-    $router.push("/");
+
+    
+    $router.push({path:"/"});
     ElNotification({
       type: "error",
       message: "账号或密码错误",

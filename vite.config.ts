@@ -4,6 +4,8 @@ import path from "path";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { UserConfigExport, ConfigEnv } from "vite";
 import { viteMockServe } from "vite-plugin-mock";
+import dns from 'dns'
+dns.setDefaultResultOrder('verbatim')
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
