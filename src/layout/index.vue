@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.layout_container{
+.layout_container {
   width: 100%;
   height: 100vh;
   background-image: url("@/assets/images/bc_2.jpg");
