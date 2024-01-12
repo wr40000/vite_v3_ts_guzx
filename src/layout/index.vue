@@ -4,15 +4,25 @@
       <logo />
     </div>
     <div class="layout_munu_main">
-      <div class="layout_menu_left" :class="{fold:LayoutSettingStore.fold?true:false}">
+      <div
+        class="layout_menu_left"
+        :class="{ fold: LayoutSettingStore.fold ? true : false }"
+      >
         <el-scrollbar height="100%">
           <!-- collapse -->
-          <el-menu class="munu_item" :collapse="LayoutSettingStore.fold?true:false" :default-active="$route.path">
+          <el-menu
+            class="munu_item"
+            :collapse="LayoutSettingStore.fold ? true : false"
+            :default-active="$route.path"
+          >
             <Menu :menuList="useUserStore_for_menu" />
           </el-menu>
         </el-scrollbar>
       </div>
-      <div class="layout_main_right" :class="{fold:LayoutSettingStore.fold?true:false}">
+      <div
+        class="layout_main_right"
+        :class="{ fold: LayoutSettingStore.fold ? true : false }"
+      >
         <div class="Tabbar_container">
           <tabbar />
         </div>
@@ -38,22 +48,25 @@ let LayoutSettingStore = useLayoutSettingStore();
 let useUserStore_for_menu = useUserStore().constantRoutes;
 </script>
 <script lang="ts">
-export default{
-  name:"Layout",
-}
+export default {
+  name: "Layout",
+};
 </script>
 
 <style scoped lang="scss">
-.layout_container {
+.layout_container{
   width: 100%;
   height: 100vh;
   background-image: url("@/assets/images/bc_2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   .layout_tabbar {
     width: 100%;
     height: $base-lt-height;
     display: flex;
+    justify-content: start;
+    align-items: center;
     min-height: 65px;
     // margin-left: 0.9rem;
     background-color: $base-lmr-background-color;
@@ -69,11 +82,11 @@ export default{
       width: $base-lml-width;
       max-width: $base-lmr-maxwidth;
       height: 100%;
-      overflow: scroll;      
+      overflow: scroll;
       background-color: $base-lml-background-color;
       transition: all 0.3s;
-      &.fold{
-        width:$base-lml-fold-width;
+      &.fold {
+        width: $base-lml-fold-width;
       }
       .el-menu {
         border-right: none;
@@ -93,15 +106,15 @@ export default{
       overflow: scroll;
       flex-wrap: wrap;
       justify-content: start;
-      align-content:start;
+      align-content: start;
       transition: all 0.3s;
-      &.fold{
-        width:calc(100vw - $base-lml-fold-width);
+      &.fold {
+        width: calc(100vw - $base-lml-fold-width);
       }
-      .Tabbar_container{
+      .Tabbar_container {
         width: 100%;
       }
-      .Main_container{
+      .Main_container {
         width: 100%;
       }
     }

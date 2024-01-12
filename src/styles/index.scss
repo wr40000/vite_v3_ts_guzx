@@ -26,8 +26,12 @@
 //   }
 // #endregion
 
+
+
 :root {
   --el-menu-bg-color: $base-lml-background-color; /* 二级菜单 这里是新值 */
+  // --card-height:45vh;
+  // --card-width: calc(var(--card-height) / 1.5);
 }
 // 解决设置滚动条右下角出现的白块
 ::-webkit-scrollbar-corner {

@@ -1,25 +1,28 @@
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <component :is="Component" v-if="flag"/>
+      <component :is="Component" v-if="flag" />
     </transition>
   </router-view>
 </template>
 
 <script setup lang="ts">
-import {watch,ref} from "vue"
-import useLayoutSettingStore from "@/store/modules/setting"
+import { watch, ref } from "vue";
+import useLayoutSettingStore from "@/store/modules/setting";
 import { nextTick } from "vue";
 
 let LayoutSettingStore = useLayoutSettingStore();
 let flag = ref(true);
 
-watch(()=>LayoutSettingStore.refsh,()=>{
-  flag.value = false;
-  nextTick(()=>{
-    flag.value=true
-  })
-})
+watch(
+  () => LayoutSettingStore.refsh,
+  () => {
+    flag.value = false;
+    nextTick(() => {
+      flag.value = true;
+    });
+  }
+);
 </script>
 
 <style scoped lang="scss">

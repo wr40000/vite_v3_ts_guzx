@@ -8,8 +8,11 @@
       </el-icon>
     </div>
     <el-breadcrumb :separator-icon="ArrowRight">
-      <el-breadcrumb-item v-for="(item, index) in $route.matched"
-         :key="index" :to="item.path">
+      <el-breadcrumb-item
+        v-for="(item, index) in $route.matched"
+        :key="index"
+        :to="item.path"
+      >
         <el-icon>
           <component :is="item.meta.icon"></component>
         </el-icon>
@@ -48,7 +51,7 @@ export default {
   .tabber_icon {
     margin-right: 1rem;
   }
-  span{
+  span {
     transform: scale(1);
   }
 }

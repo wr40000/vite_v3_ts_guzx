@@ -10,9 +10,9 @@ import Breadcrumb from "./Breadcrumb/index.vue";
 import Setting from "./Setting/index.vue";
 </script>
 <script lang="ts">
-export default{
-  name:"tabbar",
-}
+export default {
+  name: "tabbar",
+};
 </script>
 
 <style scoped lang="scss">

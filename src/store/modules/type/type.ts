@@ -3,6 +3,6 @@ import type { RouteRecordRaw } from "vue-router";
 export interface UserStoreToken {
   token: string | null;
   constantRoutes: RouteRecordRaw[];
-  username:string,
-  avatar:string
+  username: string;
+  avatar: string;
 }

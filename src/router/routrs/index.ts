@@ -1,15 +1,15 @@
 export const constantRoute = [
-    //Login
-    {
-      path: "/",
-      component: () => import("@/views/login/index.vue"),
-      name: "login",
-      meta: {
-        title: "登录",
-        hidden: true,
-        icon: "Position",
-      },
+  //Login
+  {
+    path: "/",
+    component: () => import("@/views/login/index.vue"),
+    name: "login",
+    meta: {
+      title: "登录",
+      hidden: true,
+      icon: "Position",
     },
+  },
   //layout
   {
     path: "/layout",

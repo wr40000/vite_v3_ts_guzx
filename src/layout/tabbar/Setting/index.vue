@@ -1,6 +1,12 @@
 <template>
   <div class="tabbar_right">
-    <el-button type="primary" size="large" :icon="Refresh" circle @click="change_refresh"></el-button>
+    <el-button
+      type="primary"
+      size="large"
+      :icon="Refresh"
+      circle
+      @click="change_refresh"
+    ></el-button>
     <el-button
       type="primary"
       size="large"
@@ -28,7 +34,7 @@
 
 <script setup lang="ts">
 import { Refresh, FullScreen, Setting } from "@element-plus/icons-vue";
-import useLayoutSettingStore from "@/store/modules/setting"
+import useLayoutSettingStore from "@/store/modules/setting";
 import useUserStore from "@/store/modules/user";
 import { useRouter } from "vue-router";
 import { useRoute } from "vue-router";
@@ -37,29 +43,29 @@ let LayoutSettingStore = useLayoutSettingStore();
 let userStore = useUserStore();
 let $router = useRouter();
 let $route = useRoute();
-const change_refresh=()=>{
-  LayoutSettingStore.refsh = !LayoutSettingStore.refsh
-}
-const fullscreen=()=>{
+const change_refresh = () => {
+  LayoutSettingStore.refsh = !LayoutSettingStore.refsh;
+};
+const fullscreen = () => {
   let full = document.fullscreenElement;
-  if(!full){
+  if (!full) {
     document.documentElement.requestFullscreen();
-  }else{
+  } else {
     document.exitFullscreen();
   }
-}
-const Logout=()=>{
-  userStore.username='';
-  userStore.avatar='';
-  userStore.token='';
-  localStorage.removeItem('TOKEN');
-  $router.push({path:'/',query:{redirect:`${$route.path}`}});
-}
+};
+const Logout = () => {
+  userStore.username = "";
+  userStore.avatar = "";
+  userStore.token = "";
+  localStorage.removeItem("TOKEN");
+  $router.push({ path: "/", query: { redirect: `${$route.path}` } });
+};
 </script>
 <script lang="ts">
-export default{
-  name:"Setting",
-}
+export default {
+  name: "Setting",
+};
 </script>
 
 <style scoped lang="scss">

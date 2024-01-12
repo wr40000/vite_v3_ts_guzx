@@ -92,9 +92,9 @@ const login = async () => {
   try {
     await userStore.userLogin(input_login);
     // 判断登录的时候是否有query参数
-    let redirect:any = $route.query.redirect;
+    let redirect: any = $route.query.redirect;
     // console.log( $route.query.redirect);
-    $router.push({path:redirect || "/layout"});
+    $router.push({ path: redirect || "/layout" });
     ElNotification({
       type: "success",
       title: message,
@@ -105,8 +105,7 @@ const login = async () => {
   } catch (error) {
     isload.value = false;
 
-    
-    $router.push({path:"/"});
+    $router.push({ path: "/" });
     ElNotification({
       type: "error",
       message: "账号或密码错误",

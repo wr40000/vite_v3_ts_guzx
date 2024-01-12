@@ -4,8 +4,8 @@ import path from "path";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { UserConfigExport, ConfigEnv } from "vite";
 import { viteMockServe } from "vite-plugin-mock";
-import dns from 'dns'
-dns.setDefaultResultOrder('verbatim')
+import dns from "dns";
+dns.setDefaultResultOrder("verbatim");
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -36,5 +36,12 @@ export default defineConfig(({ command }) => {
         },
       },
     },
+    // 配置前端服务地址和端口
+    // server: {
+    //   host: '139.159.253.241',
+    //   port: 8080,
+    //   // 是否开启 https
+    //   // https: true,
+    // },
   };
 });
